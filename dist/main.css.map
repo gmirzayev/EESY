@@ -1,0 +1,1 @@
+{"version":3,"file":"main.css","mappings":"AAAA,KACI,aAGJ,WACI,Y","sources":["webpack://js_project/./src/index.scss"],"sourcesContent":["main {\n    display: flex;\n}\n\n#left-side {\n    width: 300px;\n}"],"names":[],"sourceRoot":""}

@@ -1,6 +1,10 @@
-import Example from "./scripts/example";
+import Video from "./scripts/video";
 
 document.addEventListener("DOMContentLoaded", () => {
-    const main = document.getElementById("main");
-    new Example(main);
+    const startVideoButton = document.getElementById('start-video');
+    // const videoWindow = document.getElementById('video');
+    let video;
+    startVideoButton.addEventListener('click', (e) => {
+        video = new Video();
+    })
 })
