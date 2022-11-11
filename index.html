@@ -4,19 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="./dist/main.css" />
-    <script src="./dist/main.js"></script>
+    <script src="./dist/main.js" defer></script>
     <title>Project Name</title>
   </head>
 
   <body>
     <main>
         <section id="left-side">
-
+            <div id="logo-box">Logo</div>
+            <div id="picture-preview">
+                <canvas id="frame-1" class="small-frame">Frame 1</canvas>
+                <canvas id="frame-2" class="small-frame">Frame 2</canvas>
+                <canvas id="frame-3" class="small-frame">Frame 3</canvas>
+                <canvas id="frame-4" class="small-frame">Frame 4</canvas>
+            </div>
+            <div id="reel-background-color">
+                Background color
+            </div>
+            <div id="reel-text-field">
+                Add Text
+            </div>
         </section>
         <section id="right-side">
-            <button id="start-video">Start video</button>
             <video id="video" autoplay></video>
+            <button id="start-video-btn">Start Video</button>
+            <button id="capture-btn">Take Picture</button>
+            <button id="multi-capture-btn">Take 4 pictures</button>
         </section>
     </main>
   </body>
