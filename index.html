@@ -30,12 +30,26 @@
             </div>
         </section>
         <section id="right-side">
-            <video id="video" autoplay></video>
+            <div id="main-window">
+                <video id="video" autoplay></video>
+                <div id="reel">
+                    <canvas id="reel-1" class="reel-frame">Frame 1</canvas>
+                    <canvas id="reel-2" class="reel-frame">Frame 2</canvas>
+                    <canvas id="reel-3" class="reel-frame">Frame 3</canvas>
+                    <canvas id="reel-4" class="reel-frame">Frame 4</canvas>
+                </div>
+            </div>
             <button id="start-video-btn">Start Video</button>
             <button id="capture-btn">Take Picture</button>
             <button id="multi-capture-btn">Take 4 pictures</button>
         </section>
     </main>
+    <div id="off-page-store">
+        <canvas class="offpage-frame">Frame 1</canvas>
+        <canvas class="offpage-frame">Frame 2</canvas>
+        <canvas class="offpage-frame">Frame 3</canvas>
+        <canvas class="offpage-frame">Frame 4</canvas>
+    </div>
   </body>
 
 </html>

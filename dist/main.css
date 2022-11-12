@@ -109,12 +109,47 @@ main {
 
 video {
   margin: 0 auto;
-  width: 640px;
-  height: 480px;
+  width: 800px;
+  height: 600px;
   border: 1px solid black;
   display: block;
 }
 
 #start-video {
   width: 100px;
+}
+
+#main-window {
+  display: grid;
+}
+
+#video, #reel {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+#reel {
+  display: flex;
+  flex-wrap: wrap;
+  width: 800px;
+  height: 600px;
+}
+
+.reel-frame {
+  width: 320px;
+  height: 240px;
+  border: 2px solid black;
+  margin: 20px;
+}
+
+#off-page-store {
+  position: relative;
+  overflow: hidden;
+}
+
+.offpage-frame {
+  position: absolute;
+  width: 800px;
+  height: 600px;
+  right: -5000px;
 }

@@ -1,12 +1,14 @@
 class Video {
-    constructor () {
+    constructor (width, height) {
+        this.width = width;
+        this.height = height;
         this.playing = false;
     }
 
     startVideo () {
         const constraints = {
             audio: false,
-            video: { width: 640, height: 480 }
+            video: { width: this.width, height: this.height }
         };
 
         navigator.mediaDevices.getUserMedia(constraints)
