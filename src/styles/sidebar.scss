@@ -1,0 +1,34 @@
+#sidebar {   
+    width: 30vw;
+    border-left: 2px solid black;
+}
+
+#logo-box {
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid black;
+}
+
+#picture-preview {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.small-frame {
+    width: 160px;
+    height: 120px;
+    border: 2px solid black;
+    margin: 20px;
+}
+
+#reel-background-color {
+    height: 200px;
+    border: 2px solid black;
+}
+
+#reel-text-field {
+    border: 2px solid black;
+    height: 100%;
+}
