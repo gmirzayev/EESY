@@ -28,13 +28,21 @@
             <button id="start-video-btn"><img src="./assets/Camera Icon.svg"></button>
             <button id="multi-capture-btn"><img src="./assets/Camera Icon.svg"></button>
         </div>
-        <section id="main">
-            <video id="video" autoplay></video>
-            <div id="reel">
-                <canvas id="reel-1" class="reel-frame">Frame 1</canvas>
-                <canvas id="reel-2" class="reel-frame">Frame 2</canvas>
-                <canvas id="reel-3" class="reel-frame">Frame 3</canvas>
-                <canvas id="reel-4" class="reel-frame">Frame 4</canvas>
+        <section id="media-main">
+            <div id="grid-main">
+                <!-- <video id="video" autoplay></video> -->
+                <div id="reel">
+                    <canvas id="reel-1" class="reel-frame"></canvas>
+                    <canvas id="reel-2" class="reel-frame"></canvas>
+                    <canvas id="reel-3" class="reel-frame"></canvas>
+                    <canvas id="reel-4" class="reel-frame"></canvas>
+                </div>
+                <video id="video" autoplay></video>
+                <div id="flash"></div>
+            </div>
+            <div id="counter-container">
+                <div id="picture-count"></div>
+                <div id="countdown"></div>
             </div>
         </section>
         <section id="sidebar">
@@ -56,10 +64,10 @@
         </section>
     </main>
     <div id="off-page-store">
-        <canvas class="offpage-frame">Frame 1</canvas>
-        <canvas class="offpage-frame">Frame 2</canvas>
-        <canvas class="offpage-frame">Frame 3</canvas>
-        <canvas class="offpage-frame">Frame 4</canvas>
+        <canvas class="offpage-frame"></canvas>
+        <canvas class="offpage-frame"></canvas>
+        <canvas class="offpage-frame"></canvas>
+        <canvas class="offpage-frame"></canvas>
     </div>
   </body>
 

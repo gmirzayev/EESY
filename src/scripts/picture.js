@@ -1,11 +1,9 @@
 class Picture {
-    constructor (video, canvasFrame, videoWidth, videoHeight, width, height) {
+    constructor (video, canvasFrame, videoWidth, videoHeight) {
         this.video = video;
         this.canvasFrame = canvasFrame;
         this.videoWidth = videoWidth;
         this.videoHeight = videoHeight;
-        this.width = width;
-        this.height = height;
     }
 
     takePicture () {

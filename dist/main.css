@@ -126,6 +126,10 @@ main {
   justify-content: center;
 }
 
+#buttons {
+  min-width: 76px;
+}
+
 #buttons button {
   height: 76px;
   width: 76px;
@@ -139,17 +143,20 @@ main {
   background-color: #EC90F4;
 }
 
-#main {
+#media-main {
   min-width: 740px;
   height: 650px;
   margin-left: 40px;
-  display: grid;
   background-color: white;
   border-radius: 20px;
+}
+
+#grid-main {
+  display: grid;
   justify-items: center;
 }
 
-#video, #reel {
+#video, #reel, #flash {
   grid-column: 1;
   grid-row: 1;
   margin-top: 40px;
@@ -160,12 +167,51 @@ main {
   height: 469px;
 }
 
+#flash {
+  width: 610px;
+  height: 469px;
+  background-color: white;
+  visibility: hidden;
+}
+
+.flash {
+  animation: fadeOut ease 1s;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+
 #reel {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   width: 800px;
   height: 470px;
+}
+
+#picture-count {
+  margin-left: 92px;
+  padding-top: 15px;
+  font-size: 25px;
+  color: #2E4ADD;
+}
+
+#countdown {
+  margin-top: -30px;
+  color: #2E4ADD;
+  font-size: 100px;
+  text-align: center;
 }
 
 #start-video {
