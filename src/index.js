@@ -19,25 +19,14 @@ startVideoButton.addEventListener('click', (e) => {
     }
 })
 
-//get button that will take picture
-const captureButton = document.getElementById('capture-btn')
 const smallPictureWidth = 160;
 const smallPictureHeight = 120;
-//take picture on click 
-let picture;
-const frame1 = document.getElementById('frame-1');
-captureButton.addEventListener('click', (e) => {
-    picture = new Picture(stream, frame1, videoWidth, videoHeight, smallPictureWidth, smallPictureHeight);
-    picture.takePicture();
-})
 
 //get button that will take multiple pictures
 const multipleCaptureButton = document.getElementById('multi-capture-btn');
 
 //get all canvas elements with class of small-frame
-let frames = document.getElementsByClassName('small-frame');
 const offpageCanvasArray = document.getElementsByClassName('offpage-frame');
-let smallPictureArray = [];
 multipleCaptureButton.addEventListener('click', (e) => {
     //delay function that returns promise after x ms
     function delay(ms) {
@@ -47,10 +36,8 @@ multipleCaptureButton.addEventListener('click', (e) => {
     async function takePhotos() {
         for(let i = 0; i < frames.length; i++) {
             await(delay(2000));
-            let smallPicture = new Picture(stream, frames[i], videoWidth, videoHeight, smallPictureWidth, smallPictureHeight);
-            smallPicture.takePicture();
-            smallPicture.offpageCopy(offpageCanvasArray[i]);
-            smallPictureArray.push(smallPicture);
+            let offpageHolder = new Picture(stream, frames[i], videoWidth, videoHeight, smallPictureWidth, smallPictureHeight);
+            offpageHolder.offpageCopy(offpageCanvasArray[i]);
         }
         createReel();
     }

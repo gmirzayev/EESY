@@ -13,34 +13,44 @@
   </head>
 
   <body>
+    <header>
+        <div id="logo">
+            <img id="logo-image" src="./assets/EESY.png">
+        </div>
+        <div id="nav-links">
+            <img id="linkedin-logo" src="./assets/Linkedin Icon.svg" alt="linkedin logo">
+            <img src="./assets/Github Icon.svg" alt="github logo">
+        </div>
+    </header>
     <main>
+        <div id="buttons">
+            <button id="start-video-btn"><img src="./assets/Camera Icon.svg"></button>
+            <button id="multi-capture-btn"><img src="./assets/Camera Icon.svg"></button>
+        </div>
         <section id="main">
-            <div id="main-window">
-                <video id="video" autoplay></video>
-                <div id="reel">
-                    <canvas id="reel-1" class="reel-frame">Frame 1</canvas>
-                    <canvas id="reel-2" class="reel-frame">Frame 2</canvas>
-                    <canvas id="reel-3" class="reel-frame">Frame 3</canvas>
-                    <canvas id="reel-4" class="reel-frame">Frame 4</canvas>
-                </div>
+            <video id="video" autoplay></video>
+            <div id="reel">
+                <canvas id="reel-1" class="reel-frame">Frame 1</canvas>
+                <canvas id="reel-2" class="reel-frame">Frame 2</canvas>
+                <canvas id="reel-3" class="reel-frame">Frame 3</canvas>
+                <canvas id="reel-4" class="reel-frame">Frame 4</canvas>
             </div>
-            <button id="start-video-btn">Start Video</button>
-            <button id="capture-btn">Take Picture</button>
-            <button id="multi-capture-btn">Take 4 pictures</button>
         </section>
         <section id="sidebar">
-            <div id="logo-box">Logo</div>
-            <div id="picture-preview">
+            <div id="frame-select">
+                <label>FRAMES</label>
+            </div>
+            <!-- <div id="picture-preview">
                 <canvas id="frame-1" class="small-frame">Frame 1</canvas>
                 <canvas id="frame-2" class="small-frame">Frame 2</canvas>
                 <canvas id="frame-3" class="small-frame">Frame 3</canvas>
                 <canvas id="frame-4" class="small-frame">Frame 4</canvas>
+            </div> -->
+            <div id="sticker-select">
+                <label>STICKER</label>
             </div>
-            <div id="reel-background-color">
-                Background color
-            </div>
-            <div id="reel-text-field">
-                Add Text
+            <div id="text-select">
+                <label>TEXT</label>
             </div>
         </section>
     </main>

@@ -5,42 +5,72 @@
 body {
     height: 100%;
     font-family: 'Open Sans', sans-serif;
+    letter-spacing: 0.1em;
     background-color: #FFEAEA;  
+    overflow-y: hidden;
+}
+
+header {
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    // width: 100vw;
+    // display: block;
+}
+
+#logo {
+    margin-top: 30px;
+    width: 100px;
+    text-align: center;
+    // text-align: center;
+}
+
+#logo-image {
+    width: 133px;
+}
+
+#nav-links {
+    position: absolute;
+    top: 35;
+    right: 100;
+}
+
+#linkedin-logo {
+    margin-right: 23px;
 }
 
 main {
     display: flex;
+    // align-items: center;
     height: 100%;
-    overflow: hidden;
     position: relative;
+    justify-content: center;
+}
+
+#buttons {
+}
+
+#buttons button {
+    height: 76px;
+    width: 76px;
+    background-color: white;
+    border-radius: 50%;
+    display: block;
+    border: none;
 }
 
 
 
 #main {   
-    width: 70vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-video {
-    margin: 0 auto;
-    width: 740px;
-    height: 700px;
-    // border: 1px solid black;
-    display: block;
-}
-
-#start-video {
-    width: 100px;
-}
-
-#main-window {
+    min-width: 740px;
+    height: 600px;
+    margin-left: 40px;
     display: grid;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 20px;
+    align-items: center;
+    justify-items: center;
 }
 
 #video, #reel {
@@ -48,18 +78,35 @@ video {
     grid-row: 1;
 }
 
+#video {
+    width: 600px;
+    height: 450px;
+    border: 1px solid $pink;
+}
+
+// #reel-container {
+//     width: 800px;
+//     height: 600px;
+// }
+
 #reel {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     width: 800px;
-    height: 600px;
+    height: 500px;
+}
+
+#start-video {
+    width: 100px;
 }
 
 .reel-frame {
     width: 320px;
     height: 240px;
-    border: 2px solid black;
-    margin: 20px;
+    border: 1px solid $pink;
+    margin: 5px;
 }
 
 #off-page-store {

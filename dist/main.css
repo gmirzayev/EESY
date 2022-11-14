@@ -56,76 +56,94 @@ table {
 }
 
 #sidebar {
-  width: 30vw;
-  border-left: 2px solid black;
+  min-width: 300px;
+  height: 600px;
+  background-color: white;
+  border-radius: 20px;
+  margin-left: 40px;
+  color: #2E4ADD;
+  font-size: 14px;
 }
 
-#logo-box {
+#frame-select {
   width: 100%;
   height: 50px;
-  border-bottom: 2px solid black;
+  padding: 20px;
 }
 
-#picture-preview {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.small-frame {
-  width: 160px;
-  height: 120px;
-  border: 2px solid black;
-  margin: 20px;
-}
-
-#reel-background-color {
+#sticker-select {
   height: 200px;
-  border: 2px solid black;
+  padding: 20px;
 }
 
-#reel-text-field {
-  border: 2px solid black;
-  height: 100%;
+#text-select {
+  padding: 20px;
+}
+
+label {
+  color: #2E4ADD;
 }
 
 body {
   height: 100%;
   font-family: "Open Sans", sans-serif;
+  letter-spacing: 0.1em;
   background-color: #FFEAEA;
+  overflow-y: hidden;
+}
+
+header {
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+#logo {
+  margin-top: 30px;
+  width: 100px;
+  text-align: center;
+}
+
+#logo-image {
+  width: 133px;
+}
+
+#nav-links {
+  position: absolute;
+  top: 35;
+  right: 100;
+}
+
+#linkedin-logo {
+  margin-right: 23px;
 }
 
 main {
   display: flex;
   height: 100%;
-  overflow: hidden;
   position: relative;
+  justify-content: center;
+}
+
+#buttons button {
+  height: 76px;
+  width: 76px;
+  background-color: white;
+  border-radius: 50%;
+  display: block;
+  border: none;
 }
 
 #main {
-  width: 70vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-video {
-  margin: 0 auto;
-  width: 740px;
-  height: 700px;
-  display: block;
-}
-
-#start-video {
-  width: 100px;
-}
-
-#main-window {
+  min-width: 740px;
+  height: 600px;
+  margin-left: 40px;
   display: grid;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 20px;
+  align-items: center;
+  justify-items: center;
 }
 
 #video, #reel {
@@ -133,18 +151,30 @@ video {
   grid-row: 1;
 }
 
+#video {
+  width: 600px;
+  height: 450px;
+  border: 1px solid #EC90F4;
+}
+
 #reel {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   width: 800px;
-  height: 600px;
+  height: 500px;
+}
+
+#start-video {
+  width: 100px;
 }
 
 .reel-frame {
   width: 320px;
   height: 240px;
-  border: 2px solid black;
-  margin: 20px;
+  border: 1px solid #EC90F4;
+  margin: 5px;
 }
 
 #off-page-store {
