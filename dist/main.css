@@ -115,6 +115,10 @@ header {
   right: 100;
 }
 
+#nav-links a {
+  text-decoration: none;
+}
+
 #linkedin-logo {
   margin-right: 23px;
 }
