@@ -7,26 +7,40 @@
     margin-left: 40px;
     color: $blue;
     font-size: 14px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 #frame-select {
-    width: 100%;
-    height: 50px;
+    width: 250px;
     padding: 20px;
+    // display: flex;
+    // justify-content: space-between;
+    // flex-wrap: wrap;
 }
 
-// #picture-preview {
-//     width: 100%;
-//     display: flex;
-//     justify-content: center;
-//     flex-wrap: wrap;
-// }
+#frame-select ul {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
 
-// .small-frame {
-//     width: 160px;
-//     height: 120px;
-//     margin: 20px;
-// }
+.small-frame {
+    width: 75px;
+    height: 75px;
+    border: 4px solid transparent;
+    // border: 1px solid black;
+    // border-radius: 10px;
+    // padding: 2px;
+}
+
+.small-frame:hover {
+    
+    border: 4px solid $pink;
+    border-radius: 20px;
+}
 
 #sticker-select {
     height: 200px;
@@ -40,3 +54,18 @@
 label {
     color: $blue;
 }
+
+
+
+// #picture-preview {
+//     width: 100%;
+//     display: flex;
+//     justify-content: center;
+//     flex-wrap: wrap;
+// }
+
+// .small-frame {
+//     width: 160px;
+//     height: 120px;
+//     margin: 20px;
+// }
