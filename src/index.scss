@@ -27,7 +27,7 @@ header {
 }
 
 #logo-image {
-    width: 133px;
+    width: 110px;
 }
 
 #nav-links {
@@ -35,6 +35,10 @@ header {
     top: 35;
     right: 100;
 }
+
+// #nav-links img:hover {
+//     color: $pink;
+// }
 
 #linkedin-logo {
     margin-right: 23px;
@@ -48,9 +52,6 @@ main {
     justify-content: center;
 }
 
-#buttons {
-}
-
 #buttons button {
     height: 76px;
     width: 76px;
@@ -60,28 +61,33 @@ main {
     border: none;
 }
 
-
+#buttons button:hover {
+    background-color: $pink;
+}
 
 #main {   
     min-width: 740px;
-    height: 600px;
+    height: 650px;
     margin-left: 40px;
     display: grid;
     background-color: white;
     border-radius: 20px;
-    align-items: center;
+    // align-items: center;
     justify-items: center;
 }
 
 #video, #reel {
     grid-column: 1;
     grid-row: 1;
+    margin-top: 40px;
 }
 
 #video {
-    width: 600px;
-    height: 450px;
-    border: 1px solid $pink;
+    width: 610px;
+    height: 469px;
+    // border: 1px solid $blue;
+    // background-color: $blue;
+    // opacity: .5;
 }
 
 // #reel-container {
@@ -93,9 +99,9 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    // align-items: center;
     width: 800px;
-    height: 500px;
+    height: 470px;
 }
 
 #start-video {
@@ -103,10 +109,12 @@ main {
 }
 
 .reel-frame {
-    width: 320px;
-    height: 240px;
-    border: 1px solid $pink;
-    margin: 5px;
+    width: 300px;
+    height: 225px;
+    // border: 1px solid $pink;
+    // background-color: $pink;
+    // opacity: .5;
+    margin: 0 5px;
 }
 
 #off-page-store {

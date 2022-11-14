@@ -34,7 +34,7 @@ multipleCaptureButton.addEventListener('click', (e) => {
     }
     //take as many photos as there are canvases on a delay of x ms
     async function takePhotos() {
-        for(let i = 0; i < frames.length; i++) {
+        for(let i = 0; i < offpageCanvasArray.length; i++) {
             await(delay(2000));
             let offpageHolder = new Picture(stream, frames[i], videoWidth, videoHeight, smallPictureWidth, smallPictureHeight);
             offpageHolder.offpageCopy(offpageCanvasArray[i]);

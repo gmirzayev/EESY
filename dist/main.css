@@ -57,7 +57,7 @@ table {
 
 #sidebar {
   min-width: 300px;
-  height: 600px;
+  height: 650px;
   background-color: white;
   border-radius: 20px;
   margin-left: 40px;
@@ -106,7 +106,7 @@ header {
 }
 
 #logo-image {
-  width: 133px;
+  width: 110px;
 }
 
 #nav-links {
@@ -135,35 +135,37 @@ main {
   border: none;
 }
 
+#buttons button:hover {
+  background-color: #EC90F4;
+}
+
 #main {
   min-width: 740px;
-  height: 600px;
+  height: 650px;
   margin-left: 40px;
   display: grid;
   background-color: white;
   border-radius: 20px;
-  align-items: center;
   justify-items: center;
 }
 
 #video, #reel {
   grid-column: 1;
   grid-row: 1;
+  margin-top: 40px;
 }
 
 #video {
-  width: 600px;
-  height: 450px;
-  border: 1px solid #EC90F4;
+  width: 610px;
+  height: 469px;
 }
 
 #reel {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   width: 800px;
-  height: 500px;
+  height: 470px;
 }
 
 #start-video {
@@ -171,10 +173,9 @@ main {
 }
 
 .reel-frame {
-  width: 320px;
-  height: 240px;
-  border: 1px solid #EC90F4;
-  margin: 5px;
+  width: 300px;
+  height: 225px;
+  margin: 0 5px;
 }
 
 #off-page-store {
