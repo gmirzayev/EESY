@@ -1,7 +1,9 @@
 import Video from "./scripts/video";
 import Picture from "./scripts/picture";
 import Reel from "./scripts/reel";
+// import Sticker from "./scripts/sticker";
 import setPlaceholders from "./scripts/setPlaceholder";
+import Hitbox from "./scripts/hitbox";
 
 //set placeholder images
 setPlaceholders();
@@ -89,7 +91,18 @@ const createReel = function() {
 const frameList = document.getElementById('frame-list');
 const backgroundCanvas = document.getElementById('background-canvas');
 // const frame1 = document.getElementById('frame-list').firstChild;
-let selectedFrame;
+let selectedFrame = document.getElementById('start-frame');
+backgroundCanvas.width = 800;
+backgroundCanvas.height = 650;
+//load image and set background-canvas to image
+let canvasContext = backgroundCanvas.getContext('2d');
+// canvasContext.imageSmoothingEnabled = false;
+let backgroundImage = new Image();
+backgroundImage.src = `./assets/frame_${selectedFrame.dataset.frame}.png`;
+backgroundImage.onload = function(){
+    canvasContext.drawImage(backgroundImage, 0, 0, 800, 650);
+}
+
 frameList.addEventListener('click', (e) => {
     //check if clicked element is an image
     if(e.target.tagName === 'IMG') {
@@ -112,14 +125,83 @@ frameList.addEventListener('click', (e) => {
     }
 });
 
+
 const stickerList = document.getElementById('sticker-list');
+const stickerCanvas = document.getElementById('sticker-canvas');
+
+stickerCanvas.width = 800;
+stickerCanvas.height = 650;
+
+const stickerArray = [];
+
 stickerList.addEventListener('click', (e) => {
-    console.log(e.target.parentNode.tagName === 'LI');
     if(e.target.parentNode.tagName === 'LI') {
         if(e.target.parentNode.classList.contains('selected-sticker')) {
             e.target.parentNode.classList.remove('selected-sticker');
         } else {
             e.target.parentNode.classList.add('selected-sticker');
         }
+        let stickerType = e.target.dataset.type;
+        let hitbox = new Hitbox(stickerCanvas, stickerType);
+        stickerArray.push(hitbox);
     }
 });
+
+
+
+// let stickerCanvasContext = stickerCanvas.getContext('2d');
+// stickerCanvasContext.beginPath();
+// stickerCanvasContext.rect(20, 20, 150, 100);
+// stickerCanvasContext.stroke();
+
+let dragging;
+
+stickerCanvas.addEventListener('mousedown', (e) => {
+    let pos = getMousePos(stickerCanvas, e);
+
+    for(let i = 0; i < stickerArray.length; i++) {
+        if(stickerArray[i].hit(pos.x, pos.y)) {
+            let hitbox = stickerArray[i];
+            dragging = function(e) {
+                const context = stickerCanvas.getContext('2d');
+                context.clearRect(0, 0, stickerCanvas.width, stickerCanvas.height);
+                pos = getMousePos(stickerCanvas, e);
+                hitbox.posX = pos.x;
+                hitbox.posY = pos.y;
+                // hitbox.drawBox();
+                console.log(stickerArray);
+                for(let j = 0; j < stickerArray.length; j++) {
+                    console.log(stickerArray[j]);
+                    stickerArray[j].drawSticker();
+                }
+            }
+            stickerCanvas.addEventListener('mousemove', dragging);
+            break;
+        }
+    }
+
+    // if(hitbox.hit(pos.x, pos.y)) {
+    //     dragging = function(e) {
+    //         const context = stickerCanvas.getContext('2d');
+    //         context.clearRect(0, 0, stickerCanvas.width, stickerCanvas.height);
+    //         pos = getMousePos(stickerCanvas, e);
+    //         hitbox.posX = pos.x;
+    //         hitbox.posY = pos.y;
+    //         // hitbox.drawBox();
+    //         hitbox.drawSticker();
+    //     }
+    //     stickerCanvas.addEventListener('mousemove', dragging);
+    // }
+});
+
+stickerCanvas.addEventListener('mouseup', (e) => {
+    stickerCanvas.removeEventListener('mousemove', dragging);
+});
+
+function getMousePos(canvas, evt) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+      x: evt.clientX - rect.left,
+      y: evt.clientY - rect.top
+    };
+}

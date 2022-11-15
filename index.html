@@ -42,22 +42,24 @@
                     <canvas id="reel-4" class="reel-frame"></canvas>
                 </div>
                 <video id="video" autoplay></video>
+                <canvas id="sticker-canvas"></canvas>
                 <div id="flash"></div>
             </div>
             <div id="counter-container">
-                <div id="picture-count">1/4</div>
-                <div id="countdown">3</div>
+                <div id="picture-count"></div>
+                <div id="countdown"></div>
             </div>
+            
         </section>
         <section id="sidebar">
             <div id="frame-select">
                 <label>FRAMES
                 <ul id="frame-list">
                     <li>
-                        <img data-frame="1" class="small-frame selected" src="./assets/frame_1_small.png">
+                        <img data-frame="1" class="small-frame" src="./assets/frame_1_small.png">
                     </li>
                     <li>
-                        <img data-frame="2" class="small-frame" src="./assets/frame_2_small.png">
+                        <img id="start-frame" data-frame="2" class="small-frame selected-frame" src="./assets/frame_2_small.png">
                     </li>
                     <li>
                         <img data-frame="3" class="small-frame" src="./assets/frame_3_small.png">
@@ -74,32 +76,26 @@
                 </ul>
                 </label>
             </div>
-            <!-- <div id="picture-preview">
-                <canvas id="frame-1" class="small-frame">Frame 1</canvas>
-                <canvas id="frame-2" class="small-frame">Frame 2</canvas>
-                <canvas id="frame-3" class="small-frame">Frame 3</canvas>
-                <canvas id="frame-4" class="small-frame">Frame 4</canvas>
-            </div> -->
             <div id="sticker-select">
                 <label>STICKERS
                     <ul id="sticker-list">
                         <li class="sticker-frame">
-                            <img class="small-sticker" src="./assets/sticker_1.png">
+                            <img data-type="1" class="small-sticker" src="./assets/sticker_1.png">
                         </li>
                         <li class="sticker-frame">
-                            <img class="small-sticker" src="./assets/sticker_2.png">
+                            <img data-type="2" class="small-sticker" src="./assets/sticker_2.png">
                         </li>
                         <li class="sticker-frame">
-                            <img class="small-sticker" src="./assets/sticker_3.png">
+                            <img data-type="3"v class="small-sticker" src="./assets/sticker_3.png">
                         </li>
                         <li class="sticker-frame">
-                            <img class="small-sticker" src="./assets/sticker_4.png">
+                            <img data-type="4" class="small-sticker" src="./assets/sticker_4.png">
                         </li>
                         <li class="sticker-frame">
-                            <img class="small-sticker" src="./assets/sticker_5.png">
+                            <img data-type="5" class="small-sticker" src="./assets/sticker_5.png">
                         </li>
                         <li class="sticker-frame">
-                            <img class="small-sticker" src="./assets/sticker_6.png">
+                            <img data-type="6" class="small-sticker" src="./assets/sticker_6.png">
                         </li>
                     </ul>
                 </label>

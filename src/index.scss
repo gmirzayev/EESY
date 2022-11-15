@@ -91,6 +91,8 @@ main {
 }
 
 #counter-container {
+    // position: absolute;
+    // top: 0;
     // margin-left: 60px;
     // padding-top: 15px;
 }
@@ -107,6 +109,17 @@ main {
     width: 800px;
     height: 650px;
     border-radius: 20px;
+    position: absolute;
+    z-index: -1;
+}
+
+#sticker-canvas {
+    grid-column: 1;
+    grid-row: 1;
+    width: 800px;
+    height: 650px;
+    border-radius: 20px;
+    position: absolute;
 }
 
 #video {
