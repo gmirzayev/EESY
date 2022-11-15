@@ -1,13 +1,10 @@
 import Video from "./scripts/video";
 import Picture from "./scripts/picture";
 import Reel from "./scripts/reel";
-import initialize from "./scripts/initialize";
-
-initialize();
+import setPlaceholders from "./scripts/setPlaceholder";
 
 //set placeholder images
-const reelFrames = document.getElementsByClassName('reel-frame');
-
+setPlaceholders();
 
 //get button that will start video
 const startVideoButton = document.getElementById('start-video-btn');
@@ -26,12 +23,11 @@ startVideoButton.addEventListener('click', (e) => {
     }
 })
 
-const flashElement = document.getElementById('flash');
-
 //get button that will take multiple pictures
 const multipleCaptureButton = document.getElementById('multi-capture-btn');
 const pictureCount = document.getElementById('picture-count');
 const countdownTimer = document.getElementById('countdown');
+const flashElement = document.getElementById('flash');
 
 //get all canvas elements with class of small-frame
 const offpageCanvasArray = document.getElementsByClassName('offpage-frame');
@@ -82,9 +78,48 @@ multipleCaptureButton.addEventListener('click', (e) => {
     takePhotos(); 
 })
 
+
+//create reel - stop video first, then fill canvases 
 const createReel = function() {
     video.stopVideo();
     let reel = new Reel(offpageCanvasArray, videoWidth, videoHeight);
     reel.generateReel();
-    console.log("Done with photos, show reel");
 }
+
+const frameList = document.getElementById('frame-list');
+const backgroundCanvas = document.getElementById('background-canvas');
+// const frame1 = document.getElementById('frame-list').firstChild;
+let selectedFrame;
+frameList.addEventListener('click', (e) => {
+    //check if clicked element is an image
+    if(e.target.tagName === 'IMG') {
+        if(selectedFrame) {
+            selectedFrame.classList.remove('selected-frame');
+        }
+        e.target.classList.add('selected-frame');
+        selectedFrame = e.target;
+
+        backgroundCanvas.width = 800;
+        backgroundCanvas.height = 650;
+        //load image and set background-canvas to image
+        let canvasContext = backgroundCanvas.getContext('2d');
+        // canvasContext.imageSmoothingEnabled = false;
+        let backgroundImage = new Image();
+        backgroundImage.src = `./assets/frame_${e.target.dataset.frame}.png`;
+        backgroundImage.onload = function(){
+            canvasContext.drawImage(backgroundImage, 0, 0, 800, 650);
+        }
+    }
+});
+
+const stickerList = document.getElementById('sticker-list');
+stickerList.addEventListener('click', (e) => {
+    console.log(e.target.parentNode.tagName === 'LI');
+    if(e.target.parentNode.tagName === 'LI') {
+        if(e.target.parentNode.classList.contains('selected-sticker')) {
+            e.target.parentNode.classList.remove('selected-sticker');
+        } else {
+            e.target.parentNode.classList.add('selected-sticker');
+        }
+    }
+});

@@ -79,7 +79,7 @@ main {
     height: 650px;
     margin-left: 40px;
     // display: grid;
-    background-color: white;
+    background-color: transparent;
     border-radius: 20px;
     // align-items: center;
     // justify-items: center;
@@ -99,6 +99,14 @@ main {
     grid-column: 1;
     grid-row: 1;
     margin-top: 40px;
+}
+
+#background-canvas {
+    grid-column: 1;
+    grid-row: 1;
+    width: 800px;
+    height: 650px;
+    border-radius: 20px;
 }
 
 #video {

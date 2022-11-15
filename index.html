@@ -34,6 +34,7 @@
         </div>
         <section id="media-main">
             <div id="grid-main">
+                <canvas id="background-canvas"></canvas>
                 <div id="reel">
                     <canvas id="reel-1" class="reel-frame"></canvas>
                     <canvas id="reel-2" class="reel-frame"></canvas>
@@ -44,31 +45,31 @@
                 <div id="flash"></div>
             </div>
             <div id="counter-container">
-                <div id="picture-count"></div>
-                <div id="countdown"></div>
+                <div id="picture-count">1/4</div>
+                <div id="countdown">3</div>
             </div>
         </section>
         <section id="sidebar">
             <div id="frame-select">
                 <label>FRAMES
-                <ul>
+                <ul id="frame-list">
                     <li>
-                        <img class="small-frame" src="./assets/frame_1_small.png">
+                        <img data-frame="1" class="small-frame selected" src="./assets/frame_1_small.png">
                     </li>
                     <li>
-                        <img class="small-frame" src="./assets/frame_2_small.png">
+                        <img data-frame="2" class="small-frame" src="./assets/frame_2_small.png">
                     </li>
                     <li>
-                        <img class="small-frame" src="./assets/frame_3_small.png">
+                        <img data-frame="3" class="small-frame" src="./assets/frame_3_small.png">
                     </li>
                     <li>
-                        <img class="small-frame" src="./assets/frame_4_small.png">
+                        <img data-frame="4" class="small-frame" src="./assets/frame_4_small.png">
                     </li>
                     <li>
-                        <img class="small-frame" src="./assets/frame_5_small.png">
+                        <img data-frame="5" class="small-frame" src="./assets/frame_5_small.png">
                     </li>
                     <li>
-                        <img class="small-frame" src="./assets/frame_6_small.png">
+                        <img data-frame="6" class="small-frame" src="./assets/frame_6_small.png">
                     </li>
                 </ul>
                 </label>
@@ -80,7 +81,28 @@
                 <canvas id="frame-4" class="small-frame">Frame 4</canvas>
             </div> -->
             <div id="sticker-select">
-                <label>STICKER</label>
+                <label>STICKERS
+                    <ul id="sticker-list">
+                        <li class="sticker-frame">
+                            <img class="small-sticker" src="./assets/sticker_1.png">
+                        </li>
+                        <li class="sticker-frame">
+                            <img class="small-sticker" src="./assets/sticker_2.png">
+                        </li>
+                        <li class="sticker-frame">
+                            <img class="small-sticker" src="./assets/sticker_3.png">
+                        </li>
+                        <li class="sticker-frame">
+                            <img class="small-sticker" src="./assets/sticker_4.png">
+                        </li>
+                        <li class="sticker-frame">
+                            <img class="small-sticker" src="./assets/sticker_5.png">
+                        </li>
+                        <li class="sticker-frame">
+                            <img class="small-sticker" src="./assets/sticker_6.png">
+                        </li>
+                    </ul>
+                </label>
             </div>
             <div id="text-select">
                 <label>TEXT</label>
