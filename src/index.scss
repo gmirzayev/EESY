@@ -90,13 +90,6 @@ main {
     justify-items: center;
 }
 
-#counter-container {
-    // position: absolute;
-    // top: 0;
-    // margin-left: 60px;
-    // padding-top: 15px;
-}
-
 #video, #reel, #flash {
     grid-column: 1;
     grid-row: 1;
@@ -163,6 +156,26 @@ main {
 //     width: 800px;
 //     height: 600px;
 // }
+
+#caption {
+    // display: block;
+    z-index: 2;
+    resize: none;
+    border: none;
+    width: 600px;
+    height: 100px;
+    position: absolute;
+    font-family: 'Open Sans', sans-serif;
+    bottom: 150px;
+    font-size: 30px;
+    text-align: center;
+    background-color: transparent;
+}
+
+#caption:hover {
+    border: 1px solid $pink;
+}
+
 
 #reel {
     display: flex;

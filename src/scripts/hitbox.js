@@ -9,21 +9,10 @@ class Hitbox {
         this.posX = 0;
         this.posY = 0;
         this.sticker = new Sticker(this.canvas, this.posX, this.posY, stickerType);
-        // this.drawBox();
         this.drawSticker();
     }
 
-    // drawBox() {
-    //     let stickerCanvasContext = this.canvas.getContext('2d');
-    //     stickerCanvasContext.beginPath();
-    //     stickerCanvasContext.rect(this.posX, this.posY, 75, 75);
-    //     stickerCanvasContext.stroke();
-    // }
-
     drawSticker() {
-        // let stickerX = this.pos
-        // let yPos = 100;
-
         this.sticker.drawSticker(this.posX, this.posY);
     }
 

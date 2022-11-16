@@ -33,6 +33,7 @@ const flashElement = document.getElementById('flash');
 
 //get all canvas elements with class of small-frame
 const offpageCanvasArray = document.getElementsByClassName('offpage-frame');
+const textarea = document.getElementById('caption');
 multipleCaptureButton.addEventListener('click', (e) => {
     //delay function that returns promise after x ms
     function delay(ms) {
@@ -41,6 +42,7 @@ multipleCaptureButton.addEventListener('click', (e) => {
     //take as many photos as there are canvases on a delay of x ms
     async function takePhotos() {
         let pCount = 1;
+        textarea.style.display = 'none';
         
         pictureCount.innerText = `${pCount} / 4`;
         for(let i = 0; i < offpageCanvasArray.length; i++) {
@@ -63,6 +65,7 @@ multipleCaptureButton.addEventListener('click', (e) => {
             flashElement.classList.add('flash');
             await(delay(500));
 
+            
             clearInterval(timer);
             pCount++;
             pictureCount.innerText = `${pCount} / 4`;
@@ -71,6 +74,7 @@ multipleCaptureButton.addEventListener('click', (e) => {
             let offpageHolder = new Picture(stream, frames[i], videoWidth, videoHeight);
             offpageHolder.offpageCopy(offpageCanvasArray[i]);
         }
+        textarea.style.display = 'block';
         countdownTimer.innerText = "";
         pictureCount.innerText = "";
         flashElement.style.visibility = 'hidden';
@@ -136,23 +140,11 @@ const stickerArray = [];
 
 stickerList.addEventListener('click', (e) => {
     if(e.target.parentNode.tagName === 'LI') {
-        if(e.target.parentNode.classList.contains('selected-sticker')) {
-            e.target.parentNode.classList.remove('selected-sticker');
-        } else {
-            e.target.parentNode.classList.add('selected-sticker');
-        }
         let stickerType = e.target.dataset.type;
         let hitbox = new Hitbox(stickerCanvas, stickerType);
         stickerArray.push(hitbox);
     }
 });
-
-
-
-// let stickerCanvasContext = stickerCanvas.getContext('2d');
-// stickerCanvasContext.beginPath();
-// stickerCanvasContext.rect(20, 20, 150, 100);
-// stickerCanvasContext.stroke();
 
 let dragging;
 
@@ -162,36 +154,20 @@ stickerCanvas.addEventListener('mousedown', (e) => {
     for(let i = 0; i < stickerArray.length; i++) {
         if(stickerArray[i].hit(pos.x, pos.y)) {
             let hitbox = stickerArray[i];
-            dragging = function(e) {
-                const context = stickerCanvas.getContext('2d');
-                context.clearRect(0, 0, stickerCanvas.width, stickerCanvas.height);
+            const context = stickerCanvas.getContext('2d');
+            dragging = ((e) => {
                 pos = getMousePos(stickerCanvas, e);
                 hitbox.posX = pos.x;
                 hitbox.posY = pos.y;
-                // hitbox.drawBox();
-                console.log(stickerArray);
+                context.clearRect(0, 0, stickerCanvas.width, stickerCanvas.height);
                 for(let j = 0; j < stickerArray.length; j++) {
-                    console.log(stickerArray[j]);
                     stickerArray[j].drawSticker();
                 }
-            }
+            });
             stickerCanvas.addEventListener('mousemove', dragging);
             break;
         }
     }
-
-    // if(hitbox.hit(pos.x, pos.y)) {
-    //     dragging = function(e) {
-    //         const context = stickerCanvas.getContext('2d');
-    //         context.clearRect(0, 0, stickerCanvas.width, stickerCanvas.height);
-    //         pos = getMousePos(stickerCanvas, e);
-    //         hitbox.posX = pos.x;
-    //         hitbox.posY = pos.y;
-    //         // hitbox.drawBox();
-    //         hitbox.drawSticker();
-    //     }
-    //     stickerCanvas.addEventListener('mousemove', dragging);
-    // }
 });
 
 stickerCanvas.addEventListener('mouseup', (e) => {
@@ -205,3 +181,19 @@ function getMousePos(canvas, evt) {
       y: evt.clientY - rect.top
     };
 }
+
+const textColorSelect = document.getElementById('text-color-select');
+const textFontSelect = document.getElementById('text-font-select');
+
+textColorSelect.addEventListener('click', (e) => {
+    if(e.target.tagName === 'LI') {
+        textarea.style.color = e.target.dataset.color;
+    }
+});
+
+textFontSelect.addEventListener('click', (e) => {
+    if(e.target.tagName === 'LI') {
+        textarea.style.fontFamily = e.target.dataset.font;
+    }
+});
+
