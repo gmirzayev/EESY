@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./dist/main.css" />
     <script src="./dist/main.js" defer></script>
     <title>EESY</title>
@@ -44,6 +45,7 @@
                 <video id="video" autoplay></video>
                 <canvas id="sticker-canvas"></canvas>
                 <div id="flash"></div>
+                <textarea id="caption" maxlength="140">Click here to edit your caption.</textarea>
             </div>
             <div id="counter-container">
                 <div id="picture-count"></div>
@@ -101,7 +103,19 @@
                 </label>
             </div>
             <div id="text-select">
-                <label>TEXT</label>
+                <label>TEXT
+                    <ul id="text-color-select">
+                        <li id="white" data-color="white"></li>
+                        <li id="black" data-color="black"></li>
+                        <li id="blue" data-color="#2E4ADD"></li>
+                        <li id="pink" data-color="#EC90F4"></li>
+                    </ul>
+                    <ul id="text-font-select">
+                        <li id="open" data-font="Open Sans, sans-serif">TEXT</li>
+                        <li id="pacific" data-font="Pacifico, cursive">TEXT</li>
+                        <li id="lucida" data-font="Lucida Sans, sans-serif">TEXT</li>
+                    </ul>
+                </label>
             </div>
         </section>
     </main>

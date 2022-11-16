@@ -134,8 +134,77 @@ table {
   border-radius: 15px;
 }
 
-#text-select {
+#text-select label {
+  margin-left: 20px;
+}
+
+#text-color-select {
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+#text-color-select li {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+}
+
+#text-color-select li:hover {
+  box-shadow: 0 0 0 3px #EC90F4;
+}
+
+#text-font-select {
   padding: 20px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+}
+
+#text-font-select li {
+  margin-right: 10px;
+  font-size: 20px;
+  padding: 3px;
+  border: 3px solid transparent;
+}
+
+#text-font-select li:hover {
+  border: 3px solid #EC90F4;
+  border-radius: 10px;
+}
+
+#open {
+  font-family: "Open Sans", sans-serif;
+}
+
+#pacific {
+  font-family: "Pacifico", cursive;
+}
+
+#lucida {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+#white {
+  background-color: white;
+  border: 3px solid lightgrey;
+}
+
+#black {
+  background-color: black;
+  border: 3px solid white;
+}
+
+#blue {
+  background-color: #2E4ADD;
+  border: 3px solid white;
+}
+
+#pink {
+  background-color: #EC90F4;
+  border: 3px solid white;
 }
 
 label {
@@ -271,6 +340,24 @@ main {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s 2s, opacity 2s linear;
+}
+
+#caption {
+  z-index: 2;
+  resize: none;
+  border: none;
+  width: 600px;
+  height: 100px;
+  position: absolute;
+  font-family: "Open Sans", sans-serif;
+  bottom: 150px;
+  font-size: 30px;
+  text-align: center;
+  background-color: transparent;
+}
+
+#caption:hover {
+  border: 1px solid #EC90F4;
 }
 
 #reel {
