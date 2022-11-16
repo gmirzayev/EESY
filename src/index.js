@@ -1,8 +1,8 @@
 import Video from "./scripts/video";
 import Picture from "./scripts/picture";
 import Reel from "./scripts/reel";
-import setPlaceholders from "./scripts/setPlaceholder";
 import Hitbox from "./scripts/hitbox";
+import { setPlaceholders } from "./scripts/utils";
 
 //set placeholder images
 setPlaceholders();
@@ -13,16 +13,15 @@ const videoWidth = 610;
 const videoHeight = 469;
 
 //start video on click
-const video = new Video(videoWidth, videoHeight);
-let stream;
-startVideoButton.addEventListener('click', (e) => {
-    stream = document.getElementById('video');
-    if(video.playing === true) {
-        video.stopVideo();
-    } else {
-        video.startVideo();
-    }
-})
+// const video = new Video(videoWidth, videoHeight);
+// const stream = document.getElementById('video');
+// startVideoButton.addEventListener('click', (e) => {
+//     if(video.playing === true) {
+//         video.stopVideo();
+//     } else {
+//         video.startVideo();
+//     }
+// })
 
 //get button that will take multiple pictures
 const multipleCaptureButton = document.getElementById('multi-capture-btn');
@@ -36,24 +35,34 @@ const flashElement = document.getElementById('flash');
 const offpageCanvasArray = document.getElementsByClassName('offpage-frame');
 const textarea = document.getElementById('caption');
 
+const video = new Video(videoWidth, videoHeight);
+const stream = document.getElementById('video');
+
+const reelDiv = document.getElementById('reel');
+
+if(video.playing != true) {
+    video.startVideo();
+}
+
 multipleCaptureButton.addEventListener('click', (e) => {
     //delay function that returns promise after x ms
     function delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
+
     //take as many photos as there are canvases on a delay of x ms
     async function takePhotos() {
+        reelDiv.style.visibility = "hidden";
+        stream.style.visibility = "visible";
+        textarea.style.display = "none";
+        multipleCaptureButton.disabled = true;
+
         let pCount = 1;
-        textarea.style.display = 'none';
-        
         pictureCount.innerText = `${pCount} / 4`;
+        
         for(let i = 0; i < offpageCanvasArray.length; i++) {
-            // if(flashElement.classList.contains('flash')) {
-            //     setTimeout(() => {
-                    flashElement.style.visibility = 'hidden';
-                    flashElement.classList.remove('flash');
-            //     }, 900)
-            // }
+            flashElement.style.visibility = 'hidden';
+            flashElement.classList.remove('flash');
             let count = 3;
             countdownTimer.innerText = count;
             let timer = setInterval(() => {
@@ -79,17 +88,23 @@ multipleCaptureButton.addEventListener('click', (e) => {
         textarea.style.display = 'block';
         countdownTimer.innerText = "";
         pictureCount.innerText = "";
+
         flashElement.style.visibility = 'hidden';
         flashElement.classList.remove('flash');
+        reelDiv.style.visibility = "visible";
+        reelDiv.style.zIndex = 0;
+        stream.style.visibility = "hidden";
+        multipleCaptureButton.disabled = false;
+
         createReel();
     }
-    takePhotos(); 
+    if(video.playing) takePhotos();
 })
+
 
 
 //create reel - stop video first, then fill canvases 
 const createReel = function() {
-    video.stopVideo();
     let reel = new Reel(offpageCanvasArray, videoWidth, videoHeight);
     reel.generateReel();
 }
@@ -136,7 +151,7 @@ const stickerList = document.getElementById('sticker-list');
 const stickerCanvas = document.getElementById('sticker-canvas');
 
 stickerCanvas.width = 800;
-stickerCanvas.height = 650;
+stickerCanvas.height = 525;
 
 const stickerArray = [];
 
@@ -157,7 +172,6 @@ stickerCanvas.addEventListener('mousedown', (e) => {
             let hitbox = stickerArray[i];
             const context = stickerCanvas.getContext('2d');
             dragging = ((e) => {
-                
                 pos = getMousePos(stickerCanvas, e);
                 hitbox.posX = pos.x;
                 hitbox.posY = pos.y;
@@ -198,3 +212,24 @@ textFontSelect.addEventListener('click', (e) => {
         textarea.style.fontFamily = e.target.dataset.font;
     }
 });
+
+
+// const downloadButton = document.getElementById("create-download-btn");
+// const reelFrames = document.getElementsByClassName('reel-frame');
+
+// function createDownloadable(backgroundCanvas, stickerCanvas, reelCanvasArray, downloadButton) {
+//     let finalCanvas = document.getElementById('offpageDownload');
+//     finalCanvas.width = 740;
+//     finalCanvas.height = 650;
+//     let finalContext = finalCanvas.getContext('2d');
+//     finalContext.drawImage(backgroundCanvas, 0, 0);
+
+//     let image = finalCanvas.toDataURL("image/png");
+//     downloadButton.href = image;
+// }
+
+// const downloadLink = document.getElementById('download');
+
+// downloadButton.addEventListener("click", (e) => {
+//     createDownloadable(backgroundCanvas, stickerCanvas, reelFrames, downloadLink);
+// })

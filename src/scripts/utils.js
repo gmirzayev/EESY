@@ -1,4 +1,4 @@
-function setPlaceholders() {
+export function setPlaceholders() {
     const reelFrames = document.getElementsByClassName('reel-frame');
     for(let i = 0; i < reelFrames.length; i++) {
         reelFrames[i].width = 300;
@@ -12,5 +12,3 @@ function setPlaceholders() {
         }
     }
 }
-
-export default setPlaceholders;
