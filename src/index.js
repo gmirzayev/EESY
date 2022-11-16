@@ -1,7 +1,6 @@
 import Video from "./scripts/video";
 import Picture from "./scripts/picture";
 import Reel from "./scripts/reel";
-// import Sticker from "./scripts/sticker";
 import setPlaceholders from "./scripts/setPlaceholder";
 import Hitbox from "./scripts/hitbox";
 
@@ -27,13 +26,16 @@ startVideoButton.addEventListener('click', (e) => {
 
 //get button that will take multiple pictures
 const multipleCaptureButton = document.getElementById('multi-capture-btn');
+
 const pictureCount = document.getElementById('picture-count');
 const countdownTimer = document.getElementById('countdown');
+
 const flashElement = document.getElementById('flash');
 
 //get all canvas elements with class of small-frame
 const offpageCanvasArray = document.getElementsByClassName('offpage-frame');
 const textarea = document.getElementById('caption');
+
 multipleCaptureButton.addEventListener('click', (e) => {
     //delay function that returns promise after x ms
     function delay(ms) {
@@ -150,12 +152,12 @@ let dragging;
 
 stickerCanvas.addEventListener('mousedown', (e) => {
     let pos = getMousePos(stickerCanvas, e);
-
     for(let i = 0; i < stickerArray.length; i++) {
         if(stickerArray[i].hit(pos.x, pos.y)) {
             let hitbox = stickerArray[i];
             const context = stickerCanvas.getContext('2d');
             dragging = ((e) => {
+                
                 pos = getMousePos(stickerCanvas, e);
                 hitbox.posX = pos.x;
                 hitbox.posY = pos.y;
@@ -196,4 +198,3 @@ textFontSelect.addEventListener('click', (e) => {
         textarea.style.fontFamily = e.target.dataset.font;
     }
 });
-

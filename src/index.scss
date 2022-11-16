@@ -1,6 +1,14 @@
 @import './styles/reset.scss';
 @import './styles/colors.scss';
 @import './styles/sidebar.scss';
+@font-face {
+    font-family: HegelPro;
+    src: url("../HegelPro-Regular.otf");
+}
+@font-face {
+    font-family: Sunspot;
+    src: url("../Sunspot.otf");
+}
 
 body {
     height: 100%;
@@ -150,26 +158,21 @@ main {
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s 2s, opacity 2s linear;
-  }
-
-// #reel-container {
-//     width: 800px;
-//     height: 600px;
-// }
+}
 
 #caption {
-    // display: block;
     z-index: 2;
     resize: none;
     border: none;
     width: 600px;
     height: 100px;
-    position: absolute;
     font-family: 'Open Sans', sans-serif;
-    bottom: 150px;
-    font-size: 30px;
+    font-size: 28px;
+    margin-top: 10px;
+    line-height: 1.3em;
     text-align: center;
     background-color: transparent;
+    border: 1px solid transparent;
 }
 
 #caption:hover {
@@ -181,14 +184,11 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    // align-items: center;
     width: 800px;
     height: 470px;
 }
 
 #picture-count {
-    // position: relative;
-    // left: 0;
     margin-left: 92px;
     padding-top: 15px;
     font-size: 25px;
