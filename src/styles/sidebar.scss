@@ -90,8 +90,8 @@
 }
 
 #text-color-select li {
-    height: 25px;
-    width: 25px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
 }
 
@@ -109,22 +109,23 @@
 #text-font-select li {
     margin-right: 10px;
     font-size: 20px;
-    padding: 3px;
-    border: 3px solid transparent;
+    padding: 8px;
+    border: 2px solid transparent;
 }
 
 #text-font-select li:hover {
-    border: 3px solid $pink;
+    border: 2px solid $pink;
     border-radius: 10px;
 }
 
 #text-font-select .selected-text-font {
-    border: 3px solid $blue;
+    border: 2px solid $blue;
+    border-radius: 10px;
 }
 
 #text-color-select .selected-text-color {
     // border: 3px solid $blue;
-    box-shadow: 0 0 0 3px $blue; 
+    box-shadow: 0 0 0 2px $blue; 
 }
 
 #text-font-select .open {
@@ -141,20 +142,20 @@
 
 .white {
     background-color: white;
-    border: 3px solid lightgrey;
+    border: 2px solid lightgrey;
 }
 
 .black {
     background-color: black;
-    border: 3px solid white;
+    border: 2px solid white;
 }
 .blue {
     background-color: $blue;
-    border: 3px solid white;
+    border: 2px solid white;
 }
 .pink {
     background-color: $pink;
-    border: 3px solid white;
+    border: 2px solid white;
 }
 
 label {
