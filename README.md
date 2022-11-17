@@ -18,7 +18,7 @@ With EESY, users will be able to:
 <ol>
   <li>Take x number of photos on an automated timer.</li>
   <li>See the photos they have taken in a grid layout.</li>
-  <li>Decorate their reels with colors and text.</li>
+  <li>Decorate their reels with colors, text, and stickers.</li>
 </ol>
 
 To implement draggable stickers, two classes were used. One is a hitbox class that acts as the mouse collision detection.
