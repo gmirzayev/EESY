@@ -3,7 +3,6 @@
     height: 650px;
     background-color: white;
     border-radius: 20px;
-    // margin-right: 40px;
     margin-left: 40px;
     color: $blue;
     font-size: 14px;
@@ -16,9 +15,6 @@
 #frame-select {
     width: 250px;
     padding: 20px 20px 10px 20px;
-    // display: flex;
-    // justify-content: space-between;
-    // flex-wrap: wrap;
 }
 
 #sticker-select {
@@ -37,9 +33,6 @@
     height: 70px;
     border: 4px solid transparent;
     margin: 2.5px;
-    // border: 1px solid black;
-    // border-radius: 10px;
-    // padding: 2px;
 }
 
 .small-frame:hover {
@@ -67,18 +60,15 @@
     text-align: center;
 }
 
-.small-sticker {
-    width: auto;
-    height: 65px;
-    // margin: 3px;
-    // padding: 1px;
-    // border: 4px solid transparent;
-}
-
 .sticker-frame:hover {
     padding: 0;
     border: 4px solid $pink;
     border-radius: 20px;
+}
+
+.small-sticker {
+    width: auto;
+    height: 65px;
 }
 
 .selected-sticker {
@@ -92,7 +82,6 @@
 }
 
 #text-color-select {
-    // padding: 20px;
     width: 250px;
     display: flex;
     align-items: center;
@@ -104,7 +93,6 @@
     height: 25px;
     width: 25px;
     border-radius: 50%;
-    // display: inline-block;
 }
 
 #text-color-select li:hover {
@@ -130,52 +118,46 @@
     border-radius: 10px;
 }
 
-#open {
+#text-font-select .selected-text-font {
+    border: 3px solid $blue;
+}
+
+#text-color-select .selected-text-color {
+    // border: 3px solid $blue;
+    box-shadow: 0 0 0 3px $blue; 
+}
+
+#text-font-select .open {
     font-family: 'Open Sans', sans-serif;
 }
 
-#pacific {
+#text-font-select .pacific {
     font-family: 'Pacifico', cursive;
 }
 
-#sunspot {
+#text-font-select .sunspot {
     font-family: 'Sunspot';
 }
 
-#white {
+.white {
     background-color: white;
     border: 3px solid lightgrey;
 }
 
-#black {
+.black {
     background-color: black;
     border: 3px solid white;
 }
-#blue {
+.blue {
     background-color: $blue;
     border: 3px solid white;
 }
-#pink {
+.pink {
     background-color: $pink;
     border: 3px solid white;
 }
 
-
 label {
     color: $blue;
+    letter-spacing: 0.1em;
 }
-
-
-
-// #picture-preview {
-//     width: 100%;
-//     display: flex;
-//     justify-content: center;
-//     flex-wrap: wrap;
-// }
-
-// .small-frame {
-//     width: 160px;
-//     height: 120px;
-//     margin: 20px;
-// }

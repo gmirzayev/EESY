@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="./assets/Fav_icon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./dist/main.css" />
     <script src="./dist/main.js" defer></script>
@@ -16,15 +16,16 @@
 
   <body>
     <header>
+        <button id="open-modal-btn"><img id="open-img" src="./assets/Info_blue.png"></button>
         <div id="logo">
             <img id="logo-image" src="./assets/EESY.png">
         </div>
         <div id="nav-links">
-            <a href="https://www.linkedin.com/in/gleb-mirzayev-63990a86/" target="_blank" rel="noopener noreferrer">
-                <img id="linkedin-logo" src="./assets/Linkedin Icon.svg" alt="linkedin logo">
+            <a id="linkedin-link" href="https://www.linkedin.com/in/gleb-mirzayev-63990a86/" target="_blank" rel="noopener noreferrer">
+                <img id="linkedin-logo" src="./assets/Linkedin_Icon.svg" alt="linkedin logo">
             </a>
-            <a href="https://github.com/gmirzayev" target="_blank" rel="noopener noreferrer">
-                <img src="./assets/Github Icon.svg" alt="github logo">
+            <a id="github-link" href="https://github.com/gmirzayev" target="_blank" rel="noopener noreferrer">
+                <img id="github-logo" src="./assets/Github_Icon.svg" alt="github logo">
             </a>
         </div>
     </header>
@@ -44,86 +45,91 @@
                 <video id="video" autoplay></video>
                 <canvas id="sticker-canvas"></canvas>
                 <div id="flash"></div>
-                <textarea id="caption" maxlength="70">TAKE 4 PHOTOS, CUSTOMIZE, REPEAT! Click here to edit your caption.</textarea>
+                <textarea id="caption" spellcheck="false" maxlength="70">Click here to edit your caption.</textarea>
             </div>
             <div id="counter-container">
                 <div id="picture-count"></div>
                 <div id="countdown"></div>
             </div>
-            
         </section>
         <section id="sidebar">
             <div id="frame-select">
                 <label>FRAMES
                 <ul id="frame-list">
-                    <li>
-                        <img data-frame="1" class="small-frame" src="./assets/frame_1_small.png">
-                    </li>
-                    <li>
-                        <img id="start-frame" data-frame="2" class="small-frame selected-frame" src="./assets/frame_2_small.png">
-                    </li>
-                    <li>
-                        <img data-frame="3" class="small-frame" src="./assets/frame_3_small.png">
-                    </li>
-                    <li>
-                        <img data-frame="4" class="small-frame" src="./assets/frame_4_small.png">
-                    </li>
-                    <li>
-                        <img data-frame="5" class="small-frame" src="./assets/frame_5_small.png">
-                    </li>
-                    <li>
-                        <img data-frame="6" class="small-frame" src="./assets/frame_6_small.png">
-                    </li>
+                    <li><img data-frame="1" class="small-frame" src="./assets/frame_1_small.png"></li>
+                    <li><img id="start-frame" data-frame="2" class="small-frame selected-frame" src="./assets/frame_2_small.png"></li>
+                    <li><img data-frame="3" class="small-frame" src="./assets/frame_3_small.png"></li>
+                    <li><img data-frame="4" class="small-frame" src="./assets/frame_4_small.png"></li>
+                    <li><img data-frame="5" class="small-frame" src="./assets/frame_5_small.png"></li>
+                    <li><img data-frame="6" class="small-frame" src="./assets/frame_6_small.png"></li>
                 </ul>
                 </label>
             </div>
             <div id="sticker-select">
                 <label>STICKERS
                     <ul id="sticker-list">
-                        <li class="sticker-frame">
-                            <img data-type="1" class="small-sticker" src="./assets/sticker_1.png">
-                        </li>
-                        <li class="sticker-frame">
-                            <img data-type="2" class="small-sticker" src="./assets/sticker_2.png">
-                        </li>
-                        <li class="sticker-frame">
-                            <img data-type="3"v class="small-sticker" src="./assets/sticker_3.png">
-                        </li>
-                        <li class="sticker-frame">
-                            <img data-type="4" class="small-sticker" src="./assets/sticker_4.png">
-                        </li>
-                        <li class="sticker-frame">
-                            <img data-type="5" class="small-sticker" src="./assets/sticker_5.png">
-                        </li>
-                        <li class="sticker-frame">
-                            <img data-type="6" class="small-sticker" src="./assets/sticker_6.png">
-                        </li>
+                        <li class="sticker-frame"><img data-type="1" class="small-sticker" src="./assets/sticker_1.png"></li>
+                        <li class="sticker-frame"><img data-type="2" class="small-sticker" src="./assets/sticker_2.png"></li>
+                        <li class="sticker-frame"><img data-type="3" class="small-sticker" src="./assets/sticker_3.png"></li>
+                        <li class="sticker-frame"><img data-type="4" class="small-sticker" src="./assets/sticker_4.png"></li>
+                        <li class="sticker-frame"><img data-type="5" class="small-sticker" src="./assets/sticker_5.png"></li>
+                        <li class="sticker-frame"><img data-type="6" class="small-sticker" src="./assets/sticker_6.png"></li>
                     </ul>
                 </label>
             </div>
             <div id="text-select">
                 <label>TEXT
                     <ul id="text-color-select">
-                        <li id="white" data-color="white"></li>
-                        <li id="black" data-color="black"></li>
-                        <li id="blue" data-color="#2E4ADD"></li>
-                        <li id="pink" data-color="#EC90F4"></li>
+                        <li class="white" data-color="white"></li>
+                        <li id="selected-text-color" class="black selected-text-color" data-color="black"></li>
+                        <li class="blue" data-color="#2E4ADD"></li>
+                        <li class="pink" data-color="#EC90F4"></li>
                     </ul>
                     <ul id="text-font-select">
-                        <li id="open" data-font="Open Sans, sans-serif">TEXT</li>
-                        <li id="pacific" data-font="Pacifico, cursive">TEXT</li>
-                        <li id="sunspot" data-font="Sunspot">TEXT</li>
+                        <li id="selected-text-font" class="open selected-text-font" data-font="Open Sans, sans-serif">TEXT</li>
+                        <li class="pacific" data-font="Pacifico, cursive">TEXT</li>
+                        <li class="sunspot" data-font="Sunspot">TEXT</li>
                     </ul>
                 </label>
             </div>
         </section>
     </main>
-    <div id="off-page-store">
-        <canvas class="offpage-frame"></canvas>
-        <canvas class="offpage-frame"></canvas>
-        <canvas class="offpage-frame"></canvas>
-        <canvas class="offpage-frame"></canvas>
-    </div>
+    <aside>
+        <div id="off-page-store">
+            <canvas class="offpage-frame"></canvas>
+            <canvas class="offpage-frame"></canvas>
+            <canvas class="offpage-frame"></canvas>
+            <canvas class="offpage-frame"></canvas>
+        </div>
+    </aside>
+    <aside id="modal">
+        <div id="modal-content">
+            <h1>WELCOME TO EESY</h1>
+            <h3>A DIGITAL PHOTOBOOTH EXPERIENCE</h3>
+            <div id="instruction-holder">
+                <div class="instruction-slide">
+                    <img src="./assets/1_Take_photo.png">
+                    <br>
+                    <p class="modal-label">1. TAKE PHOTOS</p>
+                    <p class="modal-instruction">Allow camera access. Click the camera icon to take 4 photos.</p>
+                </div>
+                <div class="instruction-slide">
+                    <img src="./assets/frame.gif">
+                    <br>
+                    <p class="modal-label">2. DECORATE WITH <br>FRAMES AND STICKERS</p>
+                    <p class="modal-instruction">Choose a frame from the panel on the right. Click on a sticker to make it appear
+                        near your photos. Feel free to drag them around and decorate.</p>
+                </div>
+                <div class="instruction-slide">
+                    <img src="./assets/3_Caption.png">
+                    <br>
+                    <p class="modal-label">3. CAPTION YOUR CREATION</p>
+                    <p class="modal-instruction">Add a caption to finish your masterpiece. Take a screenshot to save it.</p>
+                </div>
+            </div>
+            <button id="close-modal-btn"><img src="./assets/x.svg"></button>
+        </div>
+    </aside>
   </body>
 
 </html>

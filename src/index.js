@@ -7,8 +7,34 @@ import { setPlaceholders } from "./scripts/utils";
 //set placeholder images
 setPlaceholders();
 
+const modal = document.getElementById("modal");
+const openModalButton = document.getElementById("open-modal-btn");
+const openModalImage = document.getElementById("open-img");
+const closeModalButton = document.getElementById("close-modal-btn");
+
+openModalButton.addEventListener("click", (e) => {
+    modal.style.display = "block";
+});
+
+openModalButton.addEventListener("mouseover", (e) => {
+    openModalImage.src = "./assets/Info_pink.png";
+});
+
+openModalButton.addEventListener("mouseleave", (e) => {
+    openModalImage.src = "./assets/Info_blue.png";
+});
+
+closeModalButton.addEventListener("click", (e) => {
+    modal.style.display = "none";
+});
+
+modal.addEventListener("click", (e) => {
+    if (e.target == modal) {
+        modal.style.display = "none";
+    }
+});
+
 //get button that will start video
-const startVideoButton = document.getElementById('start-video-btn');
 const videoWidth = 610;
 const videoHeight = 469;
 
@@ -44,6 +70,8 @@ if(video.playing != true) {
     video.startVideo();
 }
 
+textarea.style.display = "none";
+
 multipleCaptureButton.addEventListener('click', (e) => {
     //delay function that returns promise after x ms
     function delay(ms) {
@@ -54,9 +82,8 @@ multipleCaptureButton.addEventListener('click', (e) => {
     async function takePhotos() {
         reelDiv.style.visibility = "hidden";
         stream.style.visibility = "visible";
-        textarea.style.display = "none";
         multipleCaptureButton.disabled = true;
-
+        textarea.style.display = "none";
         let pCount = 1;
         pictureCount.innerText = `${pCount} / 4`;
         
@@ -201,35 +228,47 @@ function getMousePos(canvas, evt) {
 const textColorSelect = document.getElementById('text-color-select');
 const textFontSelect = document.getElementById('text-font-select');
 
+let selectedColor = document.getElementById('selected-text-color');
 textColorSelect.addEventListener('click', (e) => {
     if(e.target.tagName === 'LI') {
         textarea.style.color = e.target.dataset.color;
     }
+    if(selectedColor) {
+        selectedColor.classList.remove('selected-text-color');
+    }
+    e.target.classList.add('selected-text-color');
+    selectedColor = e.target;
 });
 
+let selectedFont = document.getElementById('selected-text-font');
 textFontSelect.addEventListener('click', (e) => {
     if(e.target.tagName === 'LI') {
         textarea.style.fontFamily = e.target.dataset.font;
     }
+    if(selectedFont) {
+        selectedFont.classList.remove('selected-text-font');
+    }
+    e.target.classList.add('selected-text-font');
+    selectedFont = e.target;
 });
 
+const githubLink = document.getElementById('github-link');
+const linkedinLink = document.getElementById('linkedin-link');
+const githubImage = document.getElementById('github-logo');
+const linkedinImage = document.getElementById('linkedin-logo');
 
-// const downloadButton = document.getElementById("create-download-btn");
-// const reelFrames = document.getElementsByClassName('reel-frame');
+githubLink.addEventListener("mouseover", (e) => {
+    githubImage.src = "./assets/github_pink.svg";
+});
 
-// function createDownloadable(backgroundCanvas, stickerCanvas, reelCanvasArray, downloadButton) {
-//     let finalCanvas = document.getElementById('offpageDownload');
-//     finalCanvas.width = 740;
-//     finalCanvas.height = 650;
-//     let finalContext = finalCanvas.getContext('2d');
-//     finalContext.drawImage(backgroundCanvas, 0, 0);
+githubLink.addEventListener("mouseleave", (e) => {
+    githubImage.src = "./assets/Github_Icon.svg";
+});
 
-//     let image = finalCanvas.toDataURL("image/png");
-//     downloadButton.href = image;
-// }
+linkedinLink.addEventListener("mouseover", (e) => {
+    linkedinImage.src = "./assets/linked_in_pink.svg";
+});
 
-// const downloadLink = document.getElementById('download');
-
-// downloadButton.addEventListener("click", (e) => {
-//     createDownloadable(backgroundCanvas, stickerCanvas, reelFrames, downloadLink);
-// })
+linkedinLink.addEventListener("mouseleave", (e) => {
+    linkedinImage.src = "./assets/Linkedin_Icon.svg";
+});
