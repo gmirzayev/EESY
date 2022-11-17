@@ -12,6 +12,8 @@ Canvas API: capturing frames from the video stream and decorating reels.
 
 ## Functionality
 
+<img src="https://github.com/gmirzayev/EESY/blob/a32a7f4416f8afaa019f3f186142f65379de2a96/assets/modal.gif">
+
 With EESY, users will be able to:
 <ol>
   <li>Take x number of photos on an automated timer.</li>
