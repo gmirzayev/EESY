@@ -235,6 +235,9 @@ textFontSelect.addEventListener('click', (e) => {
         textarea.style.fontFamily = e.target.dataset.font;
         if(e.target.dataset.font === 'Sunspot') {
             textarea.style.fontSize = '36px';
+            textarea.style.lineHeight = '0.9em';
+        } else if (e.target.dataset.font === 'Pacifico') {
+            textarea.style.fontSize = '32px';
         } else {
             textarea.style.fontSize = '28px';
         }
