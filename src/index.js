@@ -5,7 +5,7 @@ import Hitbox from "./scripts/hitbox";
 import { setPlaceholders } from "./scripts/utils";
 
 //set placeholder images
-setPlaceholders();
+setPlaceholders();  
 
 const modal = document.getElementById("modal");
 const openModalButton = document.getElementById("open-modal-btn");
@@ -233,6 +233,11 @@ let selectedFont = document.getElementById('selected-text-font');
 textFontSelect.addEventListener('click', (e) => {
     if(e.target.tagName === 'LI') {
         textarea.style.fontFamily = e.target.dataset.font;
+        if(e.target.dataset.font === 'Sunspot') {
+            textarea.style.fontSize = '36px';
+        } else {
+            textarea.style.fontSize = '28px';
+        }
     }
     if(selectedFont) {
         selectedFont.classList.remove('selected-text-font');
