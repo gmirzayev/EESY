@@ -238,8 +238,10 @@ textFontSelect.addEventListener('click', (e) => {
             textarea.style.lineHeight = '0.9em';
         } else if (e.target.dataset.font === 'Pacifico') {
             textarea.style.fontSize = '32px';
+            textarea.style.lineHeight = '1.3em';
         } else {
             textarea.style.fontSize = '28px';
+            textarea.style.lineHeight = '1.3em';
         }
     }
     if(selectedFont) {
