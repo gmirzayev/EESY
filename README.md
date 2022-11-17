@@ -1,5 +1,5 @@
 ## EESY
-EESY is an interactive webapp that allows a user to take photos and turn them into photo booth style reels. EESY uses the user's webcam to stream live video and to take photos from that feed. Once the photos are taken, the user can customize their photo reel with a variety of colors and text. Reels are the end product of EESY and will have all of the user's photos formatted in an attractive layout.
+<a href="https://gmirzayev.github.io/EESY/">EESY</a> is an interactive webapp that allows a user to take photos and turn them into photo booth style reels. EESY uses the user's webcam to stream live video and to take photos from that feed. Once the photos are taken, the user can customize their photo reel with a variety of colors and text. Reels are the end product of EESY and will have all of the user's photos formatted in an attractive layout.
 
 ## Technologies, Libraries, APIs
 Vanilla JavaScript: for handling buttons and timers.
