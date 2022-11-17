@@ -21,6 +21,88 @@ With EESY, users will be able to:
   <li>Decorate their reels with colors and text.</li>
 </ol>
 
+To implement draggable stickers, two classes were used. One is a hitbox class that acts as the mouse collision detection.
+
+```js
+class Hitbox {
+    constructor(canvas, stickerType) {
+        this.canvas = canvas;
+        this.width = 75;
+        this.height = 75;
+        this.posX = 0;
+        this.posY = 0;
+        this.sticker = new Sticker(this.canvas, this.posX, this.posY, stickerType);
+        this.drawSticker();
+    }
+
+    drawSticker() {
+        this.sticker.drawSticker(this.posX, this.posY);
+    }
+
+    hit(mouseX, mouseY) {
+        let rightBound = this.posX + this.width;
+        let bottomBound = this.posY + this.height;
+        if(mouseX > this.posX && mouseX < rightBound && mouseY > this.posY && mouseY < bottomBound) return true;
+    }
+}
+```
+The other is the sticker class which draws the image to canvas.
+
+```js
+class Sticker {
+    constructor(canvas, x, y, stickerType) {
+        this.canvas = canvas;
+        this.x = x;
+        this.y = y;
+        this.stickerType = stickerType;
+        this.stickerImage = new Image();
+        this.stickerImage.src = `./assets/sticker_${this.stickerType}.png`;
+    }
+
+    drawSticker(posX, posY) {
+        this.x = posX;
+        this.y = posY;
+        let canvasContext = this.canvas.getContext('2d');
+        canvasContext.drawImage(this.stickerImage, this.x, this.y, 75, 75 * this.stickerImage.height / this.stickerImage.width);
+    }
+}
+```
+An integral part of EESY is the photo capture process. The photos are temporarily saved outside of the page to maintain picture quality. A lot takes place during the photo process. The picture count is updated, the timer counts down, and the flash pops up and fades out at the end. 
+```js
+async function takePhotos() {
+        reelDiv.style.visibility = "hidden";
+        stream.style.visibility = "visible";
+        multipleCaptureButton.disabled = true;
+        textarea.style.display = "none";
+        let pictureCount = 1;
+        pictureCount.innerText = `${pictureCount} / 4`;
+        
+        for(let i = 0; i < offpageCanvasArray.length; i++) {
+            flashElement.style.visibility = 'hidden';
+            flashElement.classList.remove('flash');
+            let count = 3;
+            countdownTimer.innerText = count;
+            let timer = setInterval(() => {
+                count --;
+                if(count < 1) count = 1;
+                countdownTimer.innerText = count;
+            }, 1000);
+
+            await(delay(3500));
+            flashElement.style.visibility = 'visible';
+            flashElement.classList.add('flash');
+            await(delay(500));
+
+            
+            clearInterval(timer);
+            pictureCount++;
+            pictureCount.innerText = `${pictureCount} / 4`;
+
+
+            let offpageHolder = new Picture(stream, frames[i], videoWidth, videoHeight);
+            offpageHolder.offpageCopy(offpageCanvasArray[i]);
+        }
+```
 
 ## Wireframe
 
