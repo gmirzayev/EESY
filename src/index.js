@@ -73,8 +73,8 @@ multipleCaptureButton.addEventListener('click', (e) => {
         stream.style.visibility = "visible";
         multipleCaptureButton.disabled = true;
         textarea.style.display = "none";
-        let pictureCount = 1;
-        pictureCount.innerText = `${pictureCount} / 4`;
+        let pCount = 1;
+        pictureCount.innerText = `${pCount} / 4`;
         
         for(let i = 0; i < offpageCanvasArray.length; i++) {
             flashElement.style.visibility = 'hidden';
@@ -94,8 +94,8 @@ multipleCaptureButton.addEventListener('click', (e) => {
 
             
             clearInterval(timer);
-            pictureCount++;
-            pictureCount.innerText = `${pictureCount} / 4`;
+            pCount++;
+            pictureCount.innerText = `${pCount} / 4`;
 
 
             let offpageHolder = new Picture(stream, frames[i], videoWidth, videoHeight);
