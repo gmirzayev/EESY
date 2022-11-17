@@ -38,17 +38,6 @@ modal.addEventListener("click", (e) => {
 const videoWidth = 610;
 const videoHeight = 469;
 
-//start video on click
-// const video = new Video(videoWidth, videoHeight);
-// const stream = document.getElementById('video');
-// startVideoButton.addEventListener('click', (e) => {
-//     if(video.playing === true) {
-//         video.stopVideo();
-//     } else {
-//         video.startVideo();
-//     }
-// })
-
 //get button that will take multiple pictures
 const multipleCaptureButton = document.getElementById('multi-capture-btn');
 

@@ -2,7 +2,6 @@ import Sticker from './sticker';
 
 class Hitbox {
     constructor(canvas, stickerType) {
-        this.stickerType = stickerType;
         this.canvas = canvas;
         this.width = 75;
         this.height = 75;
