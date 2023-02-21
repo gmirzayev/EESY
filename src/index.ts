@@ -9,7 +9,7 @@ setPlaceholders();
 
 const modal = document.getElementById("modal");
 const openModalButton = document.getElementById("open-modal-btn");
-const openModalImage = document.getElementById("open-img");
+const openModalImage = <HTMLImageElement>document.getElementById("open-img");
 const closeModalButton = document.getElementById("close-modal-btn");
 
 openModalButton.addEventListener("click", (e) => {
@@ -39,7 +39,7 @@ const videoWidth = 610;
 const videoHeight = 469;
 
 //get button that will take multiple pictures
-const multipleCaptureButton = document.getElementById('multi-capture-btn');
+const multipleCaptureButton = <HTMLButtonElement>document.getElementById('multi-capture-btn');
 
 const pictureCount = document.getElementById('picture-count');
 const countdownTimer = document.getElementById('countdown');
@@ -80,11 +80,11 @@ multipleCaptureButton.addEventListener('click', (e) => {
             flashElement.style.visibility = 'hidden';
             flashElement.classList.remove('flash');
             let count = 3;
-            countdownTimer.innerText = count;
+            countdownTimer.innerText = count.toString();
             let timer = setInterval(() => {
                 count --;
                 if(count < 1) count = 1;
-                countdownTimer.innerText = count;
+                countdownTimer.innerText = count.toString();
             }, 1000);
 
             await(delay(3500));
@@ -108,7 +108,7 @@ multipleCaptureButton.addEventListener('click', (e) => {
         flashElement.style.visibility = 'hidden';
         flashElement.classList.remove('flash');
         reelDiv.style.visibility = "visible";
-        reelDiv.style.zIndex = 0;
+        reelDiv.style.zIndex = "0";
         stream.style.visibility = "hidden";
         multipleCaptureButton.disabled = false;
 
@@ -126,9 +126,9 @@ const createReel = function() {
 }
 
 const frameList = document.getElementById('frame-list');
-const backgroundCanvas = document.getElementById('background-canvas');
+const backgroundCanvas = <HTMLCanvasElement>document.getElementById('background-canvas');
 // const frame1 = document.getElementById('frame-list').firstChild;
-let selectedFrame = document.getElementById('start-frame');
+let selectedFrame = <HTMLImageElement>document.getElementById('start-frame');
 backgroundCanvas.width = 800;
 backgroundCanvas.height = 650;
 //load image and set background-canvas to image
@@ -140,14 +140,15 @@ backgroundImage.onload = function(){
     canvasContext.drawImage(backgroundImage, 0, 0, 800, 650);
 }
 
-frameList.addEventListener('click', (e) => {
+frameList.addEventListener('click', (e: Event) => {
     //check if clicked element is an image
-    if(e.target.tagName === 'IMG') {
+    const target = <HTMLImageElement>e.target;
+    if(target.tagName === 'IMG') {
         if(selectedFrame) {
             selectedFrame.classList.remove('selected-frame');
         }
-        e.target.classList.add('selected-frame');
-        selectedFrame = e.target;
+        target.classList.add('selected-frame');
+        selectedFrame = target;
 
         backgroundCanvas.width = 800;
         backgroundCanvas.height = 650;
@@ -155,7 +156,7 @@ frameList.addEventListener('click', (e) => {
         let canvasContext = backgroundCanvas.getContext('2d');
         // canvasContext.imageSmoothingEnabled = false;
         let backgroundImage = new Image();
-        backgroundImage.src = `./assets/frame_${e.target.dataset.frame}.png`;
+        backgroundImage.src = `./assets/frame_${target.dataset.frame}.png`;
         backgroundImage.onload = function(){
             canvasContext.drawImage(backgroundImage, 0, 0, 800, 650);
         }
@@ -164,16 +165,18 @@ frameList.addEventListener('click', (e) => {
 
 
 const stickerList = document.getElementById('sticker-list');
-const stickerCanvas = document.getElementById('sticker-canvas');
+const stickerCanvas = <HTMLCanvasElement>document.getElementById('sticker-canvas');
 
 stickerCanvas.width = 800;
 stickerCanvas.height = 525;
 
 const stickerArray = [];
 
-stickerList.addEventListener('click', (e) => {
-    if(e.target.parentNode.tagName === 'LI') {
-        let stickerType = e.target.dataset.type;
+stickerList.addEventListener('click', (e: Event) => {
+    const target = <HTMLDivElement>e.target;
+    const parentNode = <HTMLDivElement>target.parentNode;
+    if(parentNode.tagName === 'LI') {
+        let stickerType = target.dataset.type;
         let hitbox = new Hitbox(stickerCanvas, stickerType);
         stickerArray.push(hitbox);
     }
@@ -181,7 +184,7 @@ stickerList.addEventListener('click', (e) => {
 
 let dragging;
 
-stickerCanvas.addEventListener('mousedown', (e) => {
+stickerCanvas.addEventListener('mousedown', (e: Event) => {
     let pos = getMousePos(stickerCanvas, e);
     for(let i = 0; i < stickerArray.length; i++) {
         if(stickerArray[i].hit(pos.x, pos.y)) {
@@ -214,29 +217,31 @@ function getMousePos(canvas, evt) {
     };
 }
 
-const textColorSelect = document.getElementById('text-color-select');
+const textColorSelect = <HTMLLIElement>document.getElementById('text-color-select');
 const textFontSelect = document.getElementById('text-font-select');
 
-let selectedColor = document.getElementById('selected-text-color');
-textColorSelect.addEventListener('click', (e) => {
-    if(e.target.tagName === 'LI') {
-        textarea.style.color = e.target.dataset.color;
+let selectedColor = <HTMLLIElement>document.getElementById('selected-text-color');
+textColorSelect.addEventListener('click', (e: Event) => {
+    const target = <HTMLLIElement>e.target;
+    if(target.tagName === 'LI') {
+        textarea.style.color = target.dataset.color;
     }
     if(selectedColor) {
         selectedColor.classList.remove('selected-text-color');
     }
-    e.target.classList.add('selected-text-color');
-    selectedColor = e.target;
+    target.classList.add('selected-text-color');
+    selectedColor = target;
 });
 
-let selectedFont = document.getElementById('selected-text-font');
-textFontSelect.addEventListener('click', (e) => {
-    if(e.target.tagName === 'LI') {
-        textarea.style.fontFamily = e.target.dataset.font;
-        if(e.target.dataset.font === 'Sunspot') {
+let selectedFont = <HTMLLIElement>document.getElementById('selected-text-font');
+textFontSelect.addEventListener('click', (e: Event) => {
+    const target = <HTMLLIElement>e.target;
+    if(target.tagName === 'LI') {
+        textarea.style.fontFamily = target.dataset.font;
+        if(target.dataset.font === 'Sunspot') {
             textarea.style.fontSize = '36px';
             textarea.style.lineHeight = '0.9em';
-        } else if (e.target.dataset.font === 'Pacifico') {
+        } else if (target.dataset.font === 'Pacifico') {
             textarea.style.fontSize = '32px';
             textarea.style.lineHeight = '1.3em';
         } else {
@@ -247,14 +252,14 @@ textFontSelect.addEventListener('click', (e) => {
     if(selectedFont) {
         selectedFont.classList.remove('selected-text-font');
     }
-    e.target.classList.add('selected-text-font');
-    selectedFont = e.target;
+    target.classList.add('selected-text-font');
+    selectedFont = target;
 });
 
-const githubLink = document.getElementById('github-link');
-const linkedinLink = document.getElementById('linkedin-link');
-const githubImage = document.getElementById('github-logo');
-const linkedinImage = document.getElementById('linkedin-logo');
+const githubLink = <HTMLLinkElement>document.getElementById('github-link');
+const linkedinLink = <HTMLLinkElement>document.getElementById('linkedin-link');
+const githubImage = <HTMLImageElement>document.getElementById('github-logo');
+const linkedinImage = <HTMLImageElement>document.getElementById('linkedin-logo');
 
 githubLink.addEventListener("mouseover", (e) => {
     githubImage.src = "./assets/github_pink.svg";

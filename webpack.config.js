@@ -3,15 +3,23 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
   entry: [
-    path.resolve(__dirname, 'src', 'index.js'),
+    path.resolve(__dirname, 'src', 'index.ts'),
     path.resolve(__dirname, 'src', 'index.scss')
   ],
   output: {
     path: path.join(__dirname, 'dist'), // bundled file in dist/
     filename: '[name].js'
   },
+  resolve: {
+    // Add '.ts' and '.tsx' as resolvable extensions.
+    extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
+  },
   module: {
     rules: [
+      // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
+      { test: /\.tsx?$/, loader: "ts-loader" },
+      // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+      { test: /\.js$/, loader: "source-map-loader" },
       {
         test: /\.js$/, // applies to js files
         use: ['babel-loader'], // transpiles your js
