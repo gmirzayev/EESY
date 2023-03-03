@@ -4,7 +4,6 @@ import Reel from "./scripts/reel";
 import Hitbox from "./scripts/hitbox";
 import { setPlaceholders } from "./scripts/utils";
 
-//set placeholder images
 setPlaceholders();  
 
 const modal = document.getElementById("modal");
@@ -254,25 +253,4 @@ textFontSelect.addEventListener('click', (e: Event) => {
     }
     target.classList.add('selected-text-font');
     selectedFont = target;
-});
-
-const githubLink = <HTMLLinkElement>document.getElementById('github-link');
-const linkedinLink = <HTMLLinkElement>document.getElementById('linkedin-link');
-const githubImage = <HTMLImageElement>document.getElementById('github-logo');
-const linkedinImage = <HTMLImageElement>document.getElementById('linkedin-logo');
-
-githubLink.addEventListener("mouseover", (e) => {
-    githubImage.src = "./assets/github_pink.svg";
-});
-
-githubLink.addEventListener("mouseleave", (e) => {
-    githubImage.src = "./assets/Github_Icon.svg";
-});
-
-linkedinLink.addEventListener("mouseover", (e) => {
-    linkedinImage.src = "./assets/linked_in_pink.svg";
-});
-
-linkedinLink.addEventListener("mouseleave", (e) => {
-    linkedinImage.src = "./assets/Linkedin_Icon.svg";
 });

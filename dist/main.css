@@ -511,6 +511,22 @@ header {
   margin-right: 23px;
 }
 
+#linkedin-logo path {
+  pointer-events: bounding-box;
+}
+
+#linkedin-logo path:hover {
+  fill: #EC90F4;
+}
+
+#github-logo path {
+  pointer-events: bounding-box;
+}
+
+#github-logo path:hover {
+  fill: #EC90F4;
+}
+
 #open-modal-btn {
   position: absolute;
   left: 75;

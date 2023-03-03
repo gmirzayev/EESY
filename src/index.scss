@@ -51,6 +51,22 @@ header {
     margin-right: 23px;
 }
 
+#linkedin-logo path {
+    pointer-events: bounding-box;
+}
+
+#linkedin-logo path:hover {
+    fill: $pink;
+}
+
+#github-logo path {
+    pointer-events: bounding-box;
+}
+
+#github-logo path:hover {
+    fill: $pink;
+}
+
 #open-modal-btn {
     position: absolute;
     left: 75;
