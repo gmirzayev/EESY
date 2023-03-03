@@ -1,7 +1,7 @@
 export function setPlaceholders() {
     const reelFrames = document.getElementsByClassName('reel-frame');
     for(let i = 0; i < reelFrames.length; i++) {
-        const frame = reelFrames[i];
+        const frame = <HTMLCanvasElement>reelFrames[i];
         frame.width = 300;
         frame.height = 225;
 

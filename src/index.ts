@@ -8,19 +8,10 @@ setPlaceholders();
 
 const modal = document.getElementById("modal");
 const openModalButton = document.getElementById("open-modal-btn");
-const openModalImage = <HTMLImageElement>document.getElementById("open-img");
 const closeModalButton = document.getElementById("close-modal-btn");
 
 openModalButton.addEventListener("click", (e) => {
     modal.style.display = "block";
-});
-
-openModalButton.addEventListener("mouseover", (e) => {
-    openModalImage.src = "./assets/Info_pink.png";
-});
-
-openModalButton.addEventListener("mouseleave", (e) => {
-    openModalImage.src = "./assets/Info_blue.png";
 });
 
 closeModalButton.addEventListener("click", (e) => {
@@ -33,11 +24,9 @@ modal.addEventListener("click", (e) => {
     }
 });
 
-//get button that will start video
 const videoWidth = 610;
 const videoHeight = 469;
 
-//get button that will take multiple pictures
 const multipleCaptureButton = <HTMLButtonElement>document.getElementById('multi-capture-btn');
 
 const pictureCount = document.getElementById('picture-count');

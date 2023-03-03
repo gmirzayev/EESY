@@ -1,8 +1,15 @@
 class Video {
-    constructor (width, height) {
+
+    width: number;
+    height: number;
+    playing: boolean;
+    videoElement: HTMLVideoElement;
+
+    constructor (width: number, height: number) {
         this.width = width;
         this.height = height;
         this.playing = false;
+        this.videoElement = <HTMLVideoElement>document.getElementById('video');
     }
 
     startVideo () {
@@ -18,8 +25,7 @@ class Video {
 
     success (stream) {
         this.playing = true;
-        let video = document.getElementById('video');
-        video.srcObject = stream;
+        this.videoElement.srcObject = stream;
     }
 
     error (error) {
@@ -27,15 +33,14 @@ class Video {
     }
 
     stopVideo () {
-        let video = document.getElementById('video');
-        const stream = video.srcObject;
+        const stream = <MediaStream>this.videoElement.srcObject;
         const tracks = stream.getTracks();
 
         tracks.forEach((track) => {
             track.stop();
         });
 
-        video.srcObject = null;
+        this.videoElement.srcObject = null;
         this.playing = false;
     }
 }

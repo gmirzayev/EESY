@@ -49,22 +49,23 @@ header {
 
 #linkedin-logo {
     margin-right: 23px;
+
+    path {
+        pointer-events: bounding-box;
+        &:hover {
+            fill: $pink;
+        }
+    }
 }
 
-#linkedin-logo path {
-    pointer-events: bounding-box;
-}
+#github-logo {
 
-#linkedin-logo path:hover {
-    fill: $pink;
-}
-
-#github-logo path {
-    pointer-events: bounding-box;
-}
-
-#github-logo path:hover {
-    fill: $pink;
+    path {
+        pointer-events: bounding-box;
+        &:hover {
+            fill: $pink;
+        }
+    }
 }
 
 #open-modal-btn {
@@ -75,9 +76,17 @@ header {
     border: none;
 }
 
-#open-modal-btn img {
+#info-image {
     width: 32px;
     height: 32px;
+    cursor: pointer;
+
+    path {
+        pointer-events: bounding-box;
+        &:hover {
+            fill: $pink;
+        }
+    }
 }
 
 #off-page-store {

@@ -1,4 +1,11 @@
 class Sticker {
+
+    canvas: HTMLCanvasElement;
+    x: number;
+    y: number;
+    stickerType: string;
+    stickerImage: HTMLImageElement;
+
     constructor(canvas, x, y, stickerType) {
         this.canvas = canvas;
         this.x = x;
