@@ -103,16 +103,3 @@ async function takePhotos() {
             offpageHolder.offpageCopy(offpageCanvasArray[i]);
         }
 ```
-
-## Wireframe
-
-<img src="https://github.com/gmirzayev/JSProject/blob/e020b81c3a80f71269611412e4f6c221c72da467/wireframe.png" width="600"> 
-
-## Implementation Timeline
-<ul>
-  <li>Friday & Weekend: create photo taking functionality, timers, and basic layout of site.</li>
-  <li>Monday: format photos(canvas) into photo reel. Work on colors and other styling choices.</li>
-  <li>Tuesday: create decoration functions. Change background color of reel and add text.</li>
-  <li>Wednesday: download functionality and frontend polish.</li>
-  <li>Thursday Morning: submit finished app.</li>
-<ul>
