@@ -1,6 +1,15 @@
 import Sticker from './sticker';
 
 class Hitbox {
+
+    canvas: HTMLCanvasElement;
+    width: number;
+    height: number;
+    posX: number;
+    posY: number;
+    sticker: Sticker;
+    
+
     constructor(canvas, stickerType) {
         this.canvas = canvas;
         this.width = 75;

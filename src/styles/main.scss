@@ -5,22 +5,23 @@ main {
     justify-content: center;
 }
 
-#buttons {
+#take-photo-btn {
     min-width: 76px;
     height: 650px;
     display: flex;
     align-items: center;
 }
 
-#buttons button {
+#take-photo-btn button {
     height: 76px;
     width: 76px;
     background-color: white;
     border-radius: 50%;
     border: none;
+    cursor: pointer;
 }
 
-#buttons button:hover {
+#take-photo-btn button:hover {
     background-color: $pink;
 }
 
